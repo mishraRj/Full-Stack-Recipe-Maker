@@ -17,10 +17,9 @@ const EditRecipe = () => {
     prepTime: { hours: 0, minutes: 0 },
     cuisineType: "",
   });
-
+  const API = import.meta.env.VITE_API_URL || "http://localhost:3002";
   // Fetch existing recipe and prefill form
   useEffect(() => {
-    const API = import.meta.env.VITE_API_URL || "http://localhost:3002";
     const fetchRecipe = async () => {
       try {
         const res = await axios.get(`${API}/api/recipes/${id}`);
@@ -77,7 +76,7 @@ const EditRecipe = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3002/api/recipes/${id}`, formData);
+      await axios.put(`${API}/api/recipes/${id}`, formData);
       navigate("/");
     } catch (error) {
       console.error("Error updating recipe:", error);

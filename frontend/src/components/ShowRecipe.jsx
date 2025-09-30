@@ -10,9 +10,8 @@ const ShowRecipe = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [recipe, setRecipe] = useState(null);
-
+  const API = import.meta.env.VITE_API_URL || "http://localhost:3002";
   useEffect(() => {
-    const API = import.meta.env.VITE_API_URL || "http://localhost:3002";
     const fetchRecipe = async () => {
       try {
         const res = await axios.get(`${API}/api/recipes/${id}`);
@@ -34,7 +33,7 @@ const ShowRecipe = () => {
     if (!confirmDelete) return; // stop if user cancels
 
     try {
-      await axios.delete(`http://localhost:3002/api/recipes/${id}`);
+      await axios.delete(`${API}/api/recipes/${id}`);
       console.log("Recipe Deleted with name", recipe.title);
       navigate("/"); // redirect after deletion
     } catch (error) {
