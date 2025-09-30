@@ -1,5 +1,5 @@
 import React from "react";
-import "./CSS/style.CSS";
+import "./CSS/style.css";
 
 const Card = ({ title, imageUrl, cuisineType, prepTime }) => {
   // Format prepTime

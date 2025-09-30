@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Navbar from "./NavBar";
+import "./CSS/style.css";
 
 const ShowRecipe = () => {
   const { id } = useParams();
