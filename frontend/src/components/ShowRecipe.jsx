@@ -12,7 +12,7 @@ const ShowRecipe = () => {
   const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
-    const API = process.env.REACT_APP_API_URL || "http://localhost:3002";
+    const API = import.meta.env.VITE_API_URL || "http://localhost:3002";
     const fetchRecipe = async () => {
       try {
         const res = await axios.get(`${API}/api/recipes/${id}`);

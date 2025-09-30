@@ -12,7 +12,7 @@ const Dashboard = () => {
   const [selectedCuisine, setSelectedCuisine] = useState("");
 
   useEffect(() => {
-    const API = process.env.REACT_APP_API_URL || "http://localhost:3002";
+    const API = import.meta.env.VITE_API_URL || "http://localhost:3002";
     const fetchRecipes = async () => {
       try {
         const response = await axios.get(`${API}/api/recipes`);

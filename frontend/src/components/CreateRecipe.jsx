@@ -41,7 +41,7 @@ const CreateRecipe = () => {
   };
 
   const handleSubmit = async e => {
-    const API = process.env.REACT_APP_API_URL || "http://localhost:3002";
+    const API = import.meta.env.VITE_API_URL || "http://localhost:3002";
     e.preventDefault();
     try {
       await axios.post(`${API}/api/recipes`, formData);
