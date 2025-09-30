@@ -6,29 +6,24 @@ const dbUrl = process.env.MONGO_URL;
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const recipeRouter = require("./routes/recipe.router");
-const path = require("path");
 
 const app = express();
 
-app.use(cors());
+if (!dbUrl) {
+  console.error(
+    "❌ MONGO_URL not set. Add it to Render environment variables."
+  );
+}
+
+const CLIENT_URL = process.env.CLIENT_URL || "*";
+app.use(cors({ origin: CLIENT_URL }));
+
 app.use(bodyParser.json());
 app.use("/", recipeRouter);
 
-if (process.env.NODE_ENV === "production") {
-  const frontendPath = path.join(__dirname, "../frontend/dist");
-  app.use(express.static(frontendPath));
-
-  app.get(/.*/, (req, res) => {
-    res.sendFile(path.join(frontendPath, "index.html"));
-  });
-}
-
 //basic connection code of mongoose
 async function main() {
-  await mongoose.connect(dbUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  await mongoose.connect(dbUrl);
   console.log("✅ Connected to DB");
 }
 
