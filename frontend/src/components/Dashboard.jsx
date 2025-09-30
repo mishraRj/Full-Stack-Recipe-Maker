@@ -12,9 +12,10 @@ const Dashboard = () => {
   const [selectedCuisine, setSelectedCuisine] = useState("");
 
   useEffect(() => {
+    const API = process.env.REACT_APP_API_URL || "http://localhost:3002";
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get("http://localhost:3002/api/recipes");
+        const response = await axios.get(`${API}/api/recipes`);
         setRecipes(response.data); // assuming API returns array of recipe objects
       } catch (error) {
         console.error("Error fetching recipes:", error);
