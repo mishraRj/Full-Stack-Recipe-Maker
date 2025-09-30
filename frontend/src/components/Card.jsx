@@ -21,7 +21,7 @@ const Card = ({ title, imageUrl, cuisineType, prepTime }) => {
 
       <div className="card-bottom">
         <h4>{title}</h4>
-        <p>
+        <p className="details">
           {cuisineType} | {timeText}
         </p>
       </div>

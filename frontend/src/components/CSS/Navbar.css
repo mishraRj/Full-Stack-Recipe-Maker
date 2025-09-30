@@ -1,18 +1,27 @@
 .navbar {
-  max-width: 1200px; /* keeps navbar inside viewport */
-  margin: 0 auto; /* centers it */
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 0.5rem 2rem;
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.9);
+
+  /* Gradient background to match the dark theme */
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+
+  /* Slight transparency & blur for glassy effect */
   backdrop-filter: blur(6px);
+
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 0 0 8px 8px; /* slight rounding at bottom */
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 8px 8px;
+
+  /* Text color */
+  color: #fff;
 }
 
 .right-side {
@@ -108,4 +117,48 @@
   .menu-toggle {
     display: none;
   }
+}
+.navbar-links a {
+  color: #fff; /* links white for contrast */
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-links a:hover {
+  color: #ffe600; /* subtle highlight on hover */
+}
+
+.navbar-logo {
+  color: #fff; /* logo in white to match theme */
+}
+
+/* Tooltip/overlay for profile */
+.navbar-profile {
+  position: relative; /* necessary for absolute tooltip */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Tooltip styling */
+.profile-tooltip {
+  position: absolute;
+  top: 60px;
+  right: 80%;
+  transform: translateX(50%);
+  background-color: #222;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 100;
 }

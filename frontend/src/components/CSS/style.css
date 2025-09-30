@@ -8,7 +8,7 @@
   width: 100vw;
 
   /* background settings */
-  background-image: url("https://img.freepik.com/premium-photo/ingredients-recipe-wooden-background_1049143-28691.jpg");
+  background-image: url("https://raw.githubusercontent.com/mishraRj/Full-Stack-Recipe-Maker/84981989d4072ab5b2729b887c03806a3cca5913/frontend/background/bg.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -18,7 +18,11 @@
   height: 100vh;
   width: 100%;
   /* overflow-y: auto; */
-  padding: 0px;
+  padding: 0 20px;
+
+  flex: 1; /* takes all available space, pushes footer down */
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
 }
 
@@ -26,6 +30,9 @@
 .dashboard-container {
   width: 100%;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 70px); /* full viewport minus navbar height */
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -153,8 +160,13 @@
 
 /* Bottom white part */
 .card-bottom {
-  background: #fff;
+  background: linear-gradient(135deg, #4a148c, #6a1b9a);
   padding: 12px 15px;
+  color: #fff;
+}
+
+.card-bottom .details {
+  color: #fff;
 }
 
 .card-bottom h4 {
@@ -170,9 +182,12 @@
 
 /*-----Show Recipe----*/
 .show-recipe-container {
-  max-width: 800px;
+  width: 95%; /* takes almost full width of the viewport */
+  max-width: 800px; /* optional cap for very large screens */
   margin: 2rem auto;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(10px);
   border-top-left-radius: 50px;
   border-bottom-right-radius: 50px;
   border: 4px solid rgb(0, 30, 66);
@@ -180,6 +195,14 @@
   padding: 2rem;
   font-family: Arial, sans-serif;
 }
+
+/* Optional: mobile tweaks to prevent overflow
+@media (max-width: 768px) {
+  .show-recipe-container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+} */
 
 .show-recipe-header {
   display: flex;

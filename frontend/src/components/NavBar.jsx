@@ -1,19 +1,23 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./CSS/Navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   return (
     <nav className="navbar">
-      <div className="navbar-logo">
-        <span role="img" aria-label="logo">
-          🍴
-        </span>{" "}
-        <strong>Recipe Planet</strong>
-      </div>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <div className="navbar-logo">
+          <span role="img" aria-label="logo">
+            🍴
+          </span>{" "}
+          <strong>Recipe Planet 🪐</strong>
+        </div>
+      </Link>
 
-      {/* Hamburger icon - only visible on small screens */}
+      {/* Hamburger icon */}
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? "✖" : "☰"}
       </div>
@@ -28,7 +32,11 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div className="navbar-profile">U</div>
+        <div
+          className="navbar-profile"
+          onClick={() => setShowTooltip(!showTooltip)}>
+          U{showTooltip && <div className="profile-tooltip">Coming Soon!</div>}
+        </div>
       </div>
     </nav>
   );

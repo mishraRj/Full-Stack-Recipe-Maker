@@ -6,6 +6,7 @@ import Dashboard from "./components/Dashboard";
 import CreateRecipe from "./components/CreateRecipe";
 import ShowRecipe from "./components/ShowRecipe";
 import EditRecipe from "./components/EditRecipe";
+import About from "./components/About";
 
 const ProjectRoutes = () => {
   let elements = useRoutes([
@@ -16,6 +17,10 @@ const ProjectRoutes = () => {
     {
       path: "/Create",
       element: <CreateRecipe />,
+    },
+    {
+      path: "/about",
+      element: <About />,
     },
     {
       path: "/Show/:id",

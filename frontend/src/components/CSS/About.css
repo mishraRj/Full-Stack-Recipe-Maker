@@ -1,0 +1,28 @@
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  min-height: 70vh; /* ensures content sits nicely above footer */
+  color: #fff;
+}
+
+.about-content {
+  max-width: 800px;
+  background-color: #1e1e1e; /* slightly lighter for contrast */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.about-content h2 {
+  margin-bottom: 20px;
+  color: #ffcc00; /* highlight color for heading */
+  text-align: center;
+}
+
+.about-content p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  text-align: justify;
+}

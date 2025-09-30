@@ -4,6 +4,7 @@ import Card from "./Card";
 import "./CSS/style.CSS";
 import { Link } from "react-router-dom";
 import Navbar from "./NavBar";
+import Footer from "./Footer";
 
 const Dashboard = () => {
   const [recipes, setRecipes] = useState([]);
@@ -89,6 +90,7 @@ const Dashboard = () => {
           </main>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
