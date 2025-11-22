@@ -94,7 +94,7 @@ const ShowRecipe = () => {
                 onClick={() => navigate(`/edit-recipe/${id}`)}>
                 ✏️ Edit Recipe
               </button>
-              <button className="delete-btn" onClick={handleDeletion}>
+              <button className="delete-btn" onClick={handleDeletion} disabled>
                 🗑 Delete Recipe
               </button>
             </div>
