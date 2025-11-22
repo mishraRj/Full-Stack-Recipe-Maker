@@ -10,15 +10,20 @@ const Dashboard = () => {
   const [recipes, setRecipes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCuisine, setSelectedCuisine] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const API = import.meta.env.VITE_API_URL || "http://localhost:3002";
+
     const fetchRecipes = async () => {
+      setLoading(true);
       try {
         const response = await axios.get(`${API}/api/recipes`);
         setRecipes(response.data); // assuming API returns array of recipe objects
       } catch (error) {
         console.error("Error fetching recipes:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -86,7 +91,9 @@ const Dashboard = () => {
                 </Link>
               ))
             ) : (
-              <h1 style={{ color: "white" }}>No recipes found.</h1>
+              <h1 style={{ color: "white" }}>
+                {loading ? "Loading..." : "No recipes found"}
+              </h1>
             )}
           </main>
         </div>
