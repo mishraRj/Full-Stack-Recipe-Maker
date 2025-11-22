@@ -1,5 +1,6 @@
 import React from "react";
 import "./CSS/footer.css";
+import { Link } from "react-router-dom";
 import {
   FaTelegramPlane,
   FaGithub,
